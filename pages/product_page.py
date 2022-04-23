@@ -18,11 +18,12 @@ class ProductPage(BasePage):
         self.product_name_in_basket_should_be_wright()
         self.should_be_basket_price_message()
         self.product_price_should_be_equal_basket_price()
+        return True
 
     def should_see_product_in_basket_message(self):
         # проверка на то, что появляется сообщение о добавлении товара в корзину
-        book_in_busket_message = self.browser.find_element(
-            *ProductPageLocator.PRODUCT_IN_BUSKET_MESSAGE).is_displayed()
+        assert self.browser.find_element(
+            *ProductPageLocator.PRODUCT_IN_BUSKET_MESSAGE).is_displayed(), "Нет сообщения о добавлении товара в корзину"
 
     def product_name_in_basket_should_be_wright(self):
         # проверка на то, что имя товара в корзине совпадает с тем, что закинули в корзину:
@@ -30,12 +31,12 @@ class ProductPage(BasePage):
             *ProductPageLocator.PRODUCT_NAME).text
         book_in_busket_message = self.browser.find_element(
             *ProductPageLocator.PRODUCT_IN_BUSKET_MESSAGE).text
-        assert book_name + ' has been added to your basket.' == book_in_busket_message
+        assert book_name + ' has been added to your basket.' == book_in_busket_message, "Имя товара в корзине не совпадает с добавленным"
 
     def should_be_basket_price_message(self):
         # проверка на то, что есть сообщение с ценой корзины
-        book_price_message = self.browser.find_element(
-            *ProductPageLocator.BASKET_PRICE_MESSAGE).is_displayed()
+        assert self.browser.find_element(
+            *ProductPageLocator.BASKET_PRICE_MESSAGE).is_displayed(), "Нет сообщения с ценой товара"
 
     def product_price_should_be_equal_basket_price(self):
         # проверка на то, что цена товара совпадает с ценой в корзине
@@ -43,7 +44,7 @@ class ProductPage(BasePage):
             *ProductPageLocator.PRODUCT_PRICE).text
         basket_price = self.browser.find_element(
             *ProductPageLocator.BASKET_PRICE).text
-        assert book_price == basket_price
+        assert book_price == basket_price, "Цена товара не совпадает с ценой в корзине"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert

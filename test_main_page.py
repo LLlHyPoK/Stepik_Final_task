@@ -10,6 +10,7 @@ import pytest
 class TestLoginFromMainPage():
     @pytest.mark.xfail
     def test_guest_can_go_to_login_page(self, browser):
+        # Проверка на то, что гость может перейти на страницу логина
         link = "http://selenium1py.pythonanywhere.com/"
         page = MainPage(browser, link)
         page.open()
@@ -18,6 +19,7 @@ class TestLoginFromMainPage():
         login_page.should_be_login_page()
 
     def test_guest_cant_see_product_in_basket_opened_from_main_page(self, browser):
+        # Проверка на то, что гость может видеть продукт в корзине открытой с главной страницы
         link = "http://selenium1py.pythonanywhere.com/"
         main_page = MainPage(browser, link)
         main_page.open()

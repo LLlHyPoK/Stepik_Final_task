@@ -1,4 +1,3 @@
-from curses import BUTTON1_DOUBLE_CLICKED
 from selenium.webdriver.common.by import By
 
 
