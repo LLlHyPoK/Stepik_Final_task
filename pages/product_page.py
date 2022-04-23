@@ -18,7 +18,6 @@ class ProductPage(BasePage):
         self.product_name_in_basket_should_be_wright()
         self.should_be_basket_price_message()
         self.product_price_should_be_equal_basket_price()
-        return True
 
     def should_see_product_in_basket_message(self):
         # проверка на то, что появляется сообщение о добавлении товара в корзину
