@@ -1,3 +1,4 @@
+from curses import BUTTON1_DOUBLE_CLICKED
 from selenium.webdriver.common.by import By
 
 
@@ -27,3 +28,20 @@ class ProductPageLocator():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.XPATH, '//a[@class="btn btn-default"]')
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
+
+class BasketPageLocator():
+    BASKET_IS_EMPTY_LINK = (By.XPATH, '//div[@id="content_inner"]')
+    ITEMS_TO_BY_NOW_LINK = (By.XPATH, '//h2[class="col-sm-6 h3"]')
+
+
+class LoginPageLocators():
+    EMAIL_REGISTER_LINK = (By.XPATH, '//input[@id="id_registration-email"]')
+    PASSWORD_REGISTER_LINK = (
+        By.XPATH, '//input[@id="id_registration-password1"]')
+    PASSWORD_CONFIRM_REGISTER_LINK = (
+        By.XPATH, '//input[@id="id_registration-password2"]')
+    BUTTON_REGISTER_LINK = (
+        By.XPATH, '//button[@class="btn btn-lg btn-primary"][@name="registration_submit"]')
